@@ -5,6 +5,7 @@ node_modules
 /public/*.html
 /public/*.htm
 export/*
+config.json
 
 # local env files
 .env.local
