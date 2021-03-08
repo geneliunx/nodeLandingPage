@@ -1,0 +1,667 @@
+extends layout
+block bcontent
+	.container-fluid
+		.row.clearfix.mx-0
+			.col-md-8.px-0.preview(style='width:640px;max-width:640px;min-width:640px;')
+				.bodyContainer
+					img.bg.img-fluid(src="", alt="",style='width:640px;min-width:640px')
+					.col-12.px-0.content(style='position:absolute;top:0;left:0;')
+			.col-auto(style='max-width:480px;')
+				.col-12(style='padding:0;margin:0 15px;')
+					h1.mb-3 操作步骤
+					//- .input-group.mb-3
+					//- 	.custom-control.custom-radio.mr-3
+					//- 		input#inputGroupPlatformMobile.custom-control-input(type='radio',value='mobile',name='platform' checked)
+					//- 		label.custom-control-label(for='inputGroupPlatformMobile') 移动端
+					//- 	.custom-control.custom-radio
+					//- 		input#inputGroupPlatformPC.custom-control-input(type='radio',value='pc',name='platform')
+					//- 		label.custom-control-label(for='inputGroupPlatformPC') PC端
+					.input-group.mb-3
+						.input-group-prepend
+							span#modifyPage-addon2.input-group-text 修改落地页
+						input#inputGroupModifyPageName.form-control(type='text', aria-describedby='modifyPage-addon2', aria-label="Please enter the landing page name", placeholder="例: example.html")
+						.input-group-append
+							button#inputGroupModifyPageNameSubmit.btn.btn-outline-secondary(type='button') 确认
+					
+					h2.mb-3 ①
+					.input-group.mb-3
+						.custom-file
+							input#inputGroupBg.custom-file-input(name='inputGroupBg', type='file',accept="image/*")
+							label.custom-file-label(for='inputGroupBg') 选择背景图
+						.input-group-append
+							button#inputGroupBgUpload.btn.btn-outline-secondary(name="inputGroupBgUpload", type='button') 上传
+					h2.mb-3 ②
+					.input-group.mb-3
+						.custom-file
+							input#inputGroupFile.custom-file-input(name='inputGroupFile', type='file',accept="image/*")
+							label.custom-file-label(for='inputGroupFile') 选择其他需要的图片
+						.input-group-append
+							button#inputGroupFileUpload.btn.btn-outline-secondary(name="inputGroupFileUpload", type='button') 上传
+					h2.mb-3 ③
+					button#createDownArea.btn.btn-primary.mb-3.mr-3(type='button') 创建下载区域
+					button#createSwiper.btn.btn-primary.mb-3.mr-3(type='button') 创建轮播图
+					button#createTextArea.btn.btn-primary.mb-3(type='button') 创建文字
+
+					h2.mb-3 ④
+					.globalSetting
+						h1.mb-3(style='display:inline;line-height:1.5') 全局设置 
+						.input-group.mb-3
+							.input-group-prepend
+								.input-group-text
+									input#fullScreenDownload(type='checkbox', aria-label='Checkbox for following text input')
+							input.form-control(type='text', aria-label='Text input with checkbox', value='全屏下载?', disabled)
+					h3.mb-3(style='display:inline;line-height:1.5') 点击需要编辑的控件进行属性设置
+					.attrSetting(style='display:none')
+						h1.mb-3(style='display:inline;line-height:1.5') 属性设置
+						button.cancelSelect.btn.btn-default.btn-warning.mt-3(type='button',style='float:right') 取消选择
+						button.delSelect.btn.btn-default.btn-danger.mt-3.mr-3(type='button',style='float:right') 删除组件
+						.input-group.mb-3
+							.input-group-prepend
+								.input-group-text
+									input#attrPos(type='checkbox', aria-label='Checkbox for following text input')
+							input.form-control(type='text', aria-label='Text input with checkbox', value='窗口中位置固定?(提交后才可预览)', disabled)
+						.input-group.mb-3
+							.input-group-prepend
+								.input-group-text
+									input#attrDownBtn(type='checkbox', aria-label='Checkbox for following text input')
+							input.form-control(type='text', aria-label='Text input with checkbox', value='点击下载?', disabled)
+						.input-group.mb-3
+							.input-group-prepend
+								span#attrWidthbasic-addon1.input-group-text 宽度
+							input#attrWidth.form-control(type='text', placeholder='例: 100%', aria-label='Please input title', aria-describedby='attrWidthbasic-addon1')
+						.swiperSetting(style='display:none')
+							h3.mb-3(style='display:inline;line-height:1.5') 轮播图设置
+							.input-group.mb-3
+								.custom-file
+									input#inputGroupSwiper.custom-file-input(name='inputGroupSwiper', type='file', accept="image/*")
+									label.custom-file-label(for='inputGroupSwiper') 上传轮播图
+								.input-group-append
+									button#inputGroupSwiperUpload.btn.btn-outline-secondary(name="inputGroupSwiperUpload", type='button') 上传
+							.input-group.mb-3
+								.input-group-prepend
+									span#attrWidthbasic-addon1.input-group-text 轮播图JS
+								input#inputGroupSwiperJs.form-control(type='text', aria-describedby='swiperJs-addon2', aria-label="Please enter the landing page name", placeholder="例: var swiper=")
+							.swiperSort.mb-3(style='max-width:420px;')
+						.textSetting(style='display:none')
+							h3.mb-3(style='display:inline;line-height:1.5') 文字设置
+							.input-group.mb-3
+								.input-group-prepend
+									span.input-group-text 内容
+								textarea#textArea.form-control(aria-label='With textarea',style='height:150px')
+							.input-group.mb-3
+								.input-group-prepend
+									span#attrFontSizebasic-addon1.input-group-text 字体大小
+								input#attrFontSize.form-control(type='text', placeholder='例: 20px', aria-label='Please input title', aria-describedby='attrFontSizebasic-addon1')
+					h2.mb-3 ⑤
+					.input-group.mb-3
+						.input-group-prepend
+							span#pageTitlebasic-addon1.input-group-text 标题
+						input#pageTitle.form-control(type='text', placeholder='例: 鱼丸游戏', aria-label='Please input title', aria-describedby='pageTitlebasic-addon1')
+
+					.input-group.mb-3
+						.input-group-prepend
+							span#packageNamebasic-addon2.input-group-text 包名
+						input#packageName.form-control(type='text', placeholder='例: https://www.dafuhao-ol.com/GameBusiness/dfhapk/5A001.apk', aria-label='Please input packageName', aria-describedby='packageNamebasic-addon2')
+
+					.input-group.mb-3#iosUrl
+						.input-group-prepend
+							button.btn.input-group-text.btn-outline-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') ios链接
+							.dropdown-menu
+								a.dropdown-item(iosUrl='', style='cursor:pointer') ios链接-无
+								a.dropdown-item(iosUrl='https://apps.apple.com/cn/app/id1463360216', style='cursor:pointer') 壕车转转
+								a.dropdown-item(iosUrl='https://itunes.apple.com/cn/app/id1437491235', style='cursor:pointer') 爱心炸炸乐
+								.dropdown-divider(role='separator')
+								a.dropdown-item(iosUrl='', style='cursor:pointer') 自定义
+						input#iosUrlInput.form-control(type='text', aria-label='Text input with dropdown button')
+
+					.input-group.mb-3
+						.input-group-prepend
+							span#pageNamebasic-addon2.input-group-text 落地页命名
+						input#inputGroupPageName.form-control(type='text', aria-describedby='pageNamebasic-addon2', aria-label="Please enter the landing page name", placeholder="例: example.html")
+						.input-group-append
+							button#inputGroupPageNameSubmit.btn.btn-outline-secondary(type='button') 提交
+
+					.PageSubmitResult
+
+					#overwriteConfirm.modal.fade(role='dialog', aria-hidden='true', aria-labelledby='overwriteConfirmTitle', tabindex='-1')
+						.modal-dialog(role='document')
+							.modal-content
+								.modal-header
+									h5#overwriteConfirmLongTitle.modal-title 警告
+									button.close(data-dismiss='modal', type='button', aria-label='Close')
+										span(aria-hidden='true') ×
+								.modal-body
+									| 当前页面已存在 , 是否覆盖 ?
+								.modal-footer
+									button.btn.btn-secondary(data-dismiss='modal', type='button') 取消
+									button.btn.btn-danger(type='button') 覆盖
+			
+				//- .progress
+				//- 	.progress-bar#inputGroupFileProgress.progress-bar-striped.progress-bar-animated(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100')
+
+	script(type='text/javascript').
+		
+		var currentSelect = null;
+		var swiperCount = 0;
+		var swiperHTML = [];
+		var tempTimestamp = new Date().getTime();
+
+		$('#inputGroupBg').change(function(){
+			$('#inputGroupBg+label').html($(this).get(0).files[0].name)
+		})
+		$('#inputGroupBgUpload').click(function(){
+			var files = $("#inputGroupBg")[0].files;
+			//- let AllImgExt=".jpg|.jpeg|.gif|.bmp|.png|"; 
+			//- let extName = files.substring(files.lastIndexOf(".")).toLowerCase();//（把路径中的所有字母全部转换为小写）         
+			//- if(AllImgExt.indexOf(extName+"|")==-1)         
+			//- { 
+			//- 	ErrMsg="该文件类型不允许上传。请上传 "+AllImgExt+" 类型的文件，当前文件类型为"+extName; 
+			//- 	alert(ErrMsg); 
+			//- 	return false; 
+			//- } 
+			var data = new FormData();
+			if(files){
+				data.append("file", files[0]);
+				data.append("isBg", true);
+				data.append("tempTimestamp", tempTimestamp);
+			}
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url:'/fileUpload',
+				data : data,
+				cache: false,  
+				contentType: false,
+				processData: false,
+				//- uploadProgress: function(event, position, total, percentComplete)   
+				//- {  
+				//- 	console.log(percentComplete)
+				//- 	$("#inputGroupFileProgress").attr('aria-valuenow',percentComplete);  
+				//- },  
+				success : function (res) {
+					$('.preview .bodyContainer img.bg').attr('src',res.imgUrl.replace(/public\//,""))
+					$('.preview .bodyContainer img.bg').on('load',function(){
+						$('.preview .bodyContainer .content').css('width','100%')
+						$('.preview .bodyContainer .content').css('height',$('.preview .bodyContainer img.bg').css('height'))
+					})
+				}
+			})
+		})
+		$('#inputGroupFile').change(function(){
+			$('#inputGroupFile+label').html($(this).get(0).files[0].name)
+		})
+		$('#inputGroupFileUpload').click(function(){
+			var files = $("#inputGroupFile")[0].files;
+			//- let AllImgExt=".jpg|.jpeg|.gif|.bmp|.png|"; 
+			//- let extName = files.substring(files.lastIndexOf(".")).toLowerCase();//（把路径中的所有字母全部转换为小写）         
+			//- if(AllImgExt.indexOf(extName+"|")==-1)         
+			//- { 
+			//- 	ErrMsg="该文件类型不允许上传。请上传 "+AllImgExt+" 类型的文件，当前文件类型为"+extName; 
+			//- 	alert(ErrMsg); 
+			//- 	return false; 
+			//- } 
+			var data = new FormData();
+			if(files){
+				data.append("file", files[0]);
+				data.append("tempTimestamp", tempTimestamp);
+			}
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url:'/fileUpload',
+				data : data,
+				cache: false,  
+				contentType: false, 
+				processData: false,
+				success : function (res) {
+					$('<img>')
+					.attr('src',res.imgUrl.replace(/public\//,""))
+					.addClass('img-fluid')
+					.draggable({ containment: 'parent' })
+					.css('background-position','top left')
+					.css('position','absolute')
+					.css('max-width','640px')
+					.css('z-index',5)
+					.appendTo('.preview .bodyContainer .content')
+					.click((function(){showAttrSetting($(this))}))
+				}
+			})
+		})
+
+		$('#inputGroupSwiper').change(function(){
+			$('#inputGroupSwiper+label').html($(this).get(0).files[0].name)
+		})
+		$('#inputGroupSwiperUpload').click(function(){
+			var data = new FormData();
+			var files = $("#inputGroupSwiper")[0].files;
+			if(files){
+				data.append("file", files[0]);
+				data.append("tempTimestamp", tempTimestamp);
+			}
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url:'/fileUpload',
+				data : data,
+				cache: false,  
+				contentType: false, 
+				processData: false,
+				success : function (res) {
+					$('<div></div>').addClass('swiper-slide')
+						.appendTo('.swiperSetting .swiperSort')
+						.append($('<img>')
+							.attr('src',res.imgUrl.replace(/public\//,""))
+							.addClass('img-fluid')
+							.css('max-width','100%')
+							.css('display','block')
+							.css('z-index',1)
+							//- .appendTo('.swiperSetting .swiperSort')
+						)
+					updateSwiper()
+				}
+			})
+		})
+
+		function remToPx(_s){
+			var reg = /(\:|: )+(\d)*(\.)?(\d)*(rem)/gi;
+			let newStr= _s.replace(reg, function(_x){
+				_x = _x.replace(/(\:|: )/,'').replace(/rem/i,'');
+				return ':' + parseFloat(_x) * 64 + 'px';
+			});
+			return newStr;
+		}
+
+		$('#inputGroupModifyPageNameSubmit').click(function(){
+			let pageName = $('#inputGroupModifyPageName').val()
+			tempTimestamp = new Date().getTime();
+			String.prototype.endWith = function (s) {
+				var d = this.length - s.length;
+				return (d >= 0 && this.lastIndexOf(s) == d)
+			}
+			if(pageName.endWith("html") || pageName.endWith("htm")){
+				pageName = pageName
+			}else{
+				return false
+			}
+			
+			data = {pageName:pageName,tempTimestamp:tempTimestamp}
+			$.ajax({
+				type: 'POST',
+				dataType: 'html',
+				url:'/modifyPage',
+				data : data,
+				success : function (res) {
+					res = remToPx(res)
+					res = res.replace(/(window\.onload=function\(\)\{var swiper[^\<]*)[\<]/g,function(_v){
+						_v = _v.replace(/window\.onload=function\(\)\{/,'').replace(/\}\)\}\</,'})<')
+						return _v
+					})
+					$(res).find('.swiper-container').each(function(){
+						let swiperNum = $(this).attr('swiperNum')
+						swiperHTML[swiperNum]=$(this).find('.swiper-wrapper').html();
+						swiperCount <= parseInt(swiperNum) ? swiperCount = parseInt(swiperNum) + 1 : console.log(swiperCount)
+					})
+					
+					$('.preview').html($(res).filter('.bodyContainer'))
+					if($('.preview .bodyContainer').hasClass('down_url')){
+						$('#fullScreenDownload').attr('checked',true)
+					}
+					$('.preview .bodyContainer .content>img')
+						.draggable({ containment: 'parent' })
+						.click((function(){showAttrSetting($(this))}))
+					$('.preview .bodyContainer .content div.download_btn')
+						.draggable({ containment: 'parent' })
+						.resizable({ containment: 'parent' })
+						.click((function(){showAttrSetting($(this))}))
+					$('.preview .bodyContainer .content div.swiper-container')
+						.draggable({ containment: 'parent' })
+						.click((function(){showAttrSetting($(this))}))
+					$('.preview .bodyContainer .content div.text_area')
+						.draggable({ containment: 'parent' })
+						.resizable({ containment: 'parent' })
+						.click((function(){showAttrSetting($(this))}))
+					$('#pageTitle').val($(res).filter('title').html())
+					let file = res.match(/var andriodUrl = [\'\"]?([^\'\"]*)[\'\"]?/i)[1]
+					let filename=file.replace(/var andriodUrl = \"/, "");
+					$('#packageName').val(filename)
+					if(res.match(/[\'\"]?(apple\.com\/([^\'\"]*))[\'\"]?/i)!=null){
+						file = res.match(/[\'\"]?(apple\.com\/([^\'\"]*))[\'\"]?/i)[1]
+						filename="https://apps."+file
+						$('#iosUrlInput').val(filename)
+					}
+					$('#inputGroupPageName').val(pageName)
+					if(currentSelect!=null){
+						if(currentSelect.hasClass('DomSelected')){currentSelect.removeClass('DomSelected')}
+						$('.attrSetting').css('display','none')
+					}
+				},
+				error:function(err){
+					alert(err.responseText)
+				}
+			})
+			
+			
+			
+		})
+		
+		$('#createDownArea').click(function(){
+			$('<div></div>')
+			.addClass('down_url').addClass('download_btn').addClass('border28E')
+			.css('width','100px').css('height','50px')
+			.css('display','inline-block')
+			.css('background-position','top left')
+			.css('position','absolute').css('z-index',1000)
+			.draggable({ containment: 'parent' })
+			.resizable({ containment: 'parent' })
+			.appendTo('.preview .bodyContainer .content')
+			.click(function(){showAttrSetting($(this))})
+		})
+
+		$('#createSwiper').click(function(){
+			$('<div></div>')
+				.addClass('swiper-container').addClass('swiper'+swiperCount)
+				.attr('swiperNum',swiperCount)
+				.css('background-position','top left')
+				.css('position','absolute')
+				.css('width','100%').css('z-index',2)
+				.draggable({ containment: 'parent' })
+				.html(`<div class="swiper-wrapper"><div class="swiper-slide" style="background: #4390EE;color:#fff;line-height: 300px;text-align: center;font-size: 50px;">slider1</div>
+					<div class="swiper-slide" style="background: #CA4040;color:#fff;line-height: 300px;text-align: center;font-size: 50px;">slider2</div>
+					<div class="swiper-slide" style="background: #FF8604;color:#fff;line-height: 300px;text-align: center;font-size: 50px;">slider3</div>
+					</div>`)
+				.appendTo('.preview .bodyContainer .content')
+				.click(function(){showAttrSetting($(this))})
+				.after(
+					$('<script>').attr('type','text/javascript').attr('swiperNum',swiperCount)
+						.html(`var swiper${swiperCount} = new Swiper('.swiper-container.swiper${swiperCount}',{autoplay:{disableOnInteraction:false,},loop:true,allowTouchMove:false,})`)
+				)
+			swiperCount+=1;
+		})
+
+		$('#createTextArea').click(function(){
+			$('<div></div>')
+			.addClass('text_area').addClass('border28E')
+			.css('min-width','100px').css('min-height','28px')
+			.css('width','640px')
+			.css('display','inline-block')
+			.css('background-position','top left')
+			.css('position','absolute').css('z-index',10)
+			.css('font-size','15px').css('text-align','center')
+			.css('text-shadow','black 0.1em 0.1em 0.2em').css('color','#fff')
+			.draggable({ containment: 'parent' })
+			.appendTo('.preview .bodyContainer .content')
+			.click(function(){showAttrSetting($(this))})
+		})
+
+		function showAttrSetting(that){
+			$('.preview .bodyContainer .content .DomSelected').each(function(){
+				$(this).removeClass('DomSelected')
+			})
+			currentSelect = that
+			if(currentSelect.hasClass('bodyFixed')){$('#attrPos').prop('checked',true)}else{$('#attrPos').prop('checked',false)}
+			if(currentSelect.hasClass('down_url')){$('#attrDownBtn').prop('checked',true)}else{$('#attrDownBtn').prop('checked',false)}
+			$('#attrWidth').val(currentSelect.css('width'))
+			currentSelect.addClass('DomSelected')
+			if(currentSelect.hasClass('text_area')){
+				$('.attrSetting .textSetting').show()
+				$('#textArea').val(currentSelect.html().replace(/<br>/g,'\n').replace(/<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><\/div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><\/div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"><\/div>/g,''))
+				$('#attrFontSize').val(currentSelect.css('font-size'))
+			}else{
+				$('.attrSetting .textSetting').hide()
+			}
+			if(currentSelect.hasClass('swiper-container')){
+				let swiperNum = currentSelect.attr('swiperNum')
+				$('#inputGroupSwiperJs').val(currentSelect.next().html())
+				$('.attrSetting .swiperSetting').show()
+				$('.swiperSetting .swiperSort')
+					.sortable({ 
+						axis: "y",
+						items: "div",
+						opacity: 0.6,
+						update: function(e,ui){
+							updateSwiper()
+						} 
+					})
+					.disableSelection()
+					.html(function(){
+						if(swiperHTML[swiperNum]==undefined){
+							return ''
+						}else{
+							return swiperHTML[swiperNum]
+						}
+					});
+			}else{
+				$('.attrSetting .swiperSetting').hide()
+			}
+			$('.attrSetting').show()
+		}
+
+		function updateSwiper(_j){
+			if(currentSelect.hasClass('swiper-container')){
+				let swiperNum = currentSelect.attr('swiperNum')
+				if(eval(`swiper${swiperNum}`)){eval(`swiper${swiperNum}.destroy(true,false)`)};
+				if(currentSelect.next().prop('tagName')=='SCRIPT'){
+					currentSelect.next().remove();
+				}
+				swiperHTML[swiperNum]=$('.swiperSetting .swiperSort').html();
+				currentSelect.find('.swiper-wrapper').html(swiperHTML[swiperNum])
+				if(_j==undefined){
+					currentSelect.after(
+					$('<script>').attr('type','text/javascript').attr('swiperNum',swiperNum)
+						.html(`var swiper${swiperNum} = new Swiper('.swiper-container.swiper${swiperNum}',{autoplay:{disableOnInteraction:false,},loop:true,allowTouchMove:false,})`))
+				}else{
+					currentSelect.after(
+					$('<script>').attr('type','text/javascript').attr('swiperNum',swiperNum)
+						.html(_j))
+				}
+				eval(`swiper${swiperNum}.update()`);
+			}
+		}
+		
+		$('#fullScreenDownload').change(function(){
+			if($(this).prop('checked')){
+				$('.bodyContainer').addClass('down_url')
+			}else{
+				if($('.bodyContainer').hasClass('down_url')){$('.bodyContainer').removeClass('down_url')}
+			}
+		})
+		$('#attrPos').change(function(){
+			if(currentSelect==null){
+				$(this).prop('checked',false)
+				return alert('未选择需要修改的元素')
+			}
+			if($(this).prop('checked')){
+				currentSelect.addClass('bodyFixed')
+			}else{
+				if(currentSelect.hasClass('bodyFixed')){currentSelect.removeClass('bodyFixed')}
+			}
+		})
+		$('#attrDownBtn').change(function(){
+			if(currentSelect==null){
+				$(this).prop('checked',false)
+				return alert('未选择需要修改的元素')
+			}
+			if($(this).prop('checked')){
+				currentSelect.addClass('down_url')
+			}else{
+				if(currentSelect.hasClass('down_url')){currentSelect.removeClass('down_url')}
+			}
+		})
+		$('#attrWidth').change(function(){
+			if(currentSelect==null){
+				return alert('未选择需要修改的元素')
+			}
+			currentSelect.css('width',$(this).val())
+			if(currentSelect.hasClass('swiper-container')){
+				updateSwiper()
+			}
+		})
+		$('#attrFontSize').change(function(){
+			if(currentSelect==null){
+				return alert('未选择需要修改的元素')
+			}
+			currentSelect.css('font-size',$(this).val())
+		})
+		$('#inputGroupSwiperJs').change(function(){
+			if(currentSelect==null){
+				return alert('未选择需要修改的元素')
+			}
+			if(currentSelect.hasClass('swiper-container')){
+				updateSwiper($(this).val())
+			}
+		})
+		$('#textArea').change(function(){
+			if(currentSelect==null){
+				return alert('未选择需要修改的元素')
+			}
+			let cont = $(this).val().replace(/\n/g,'<br>')
+			currentSelect.html(cont)
+		})
+		$('#textArea').on('input',function(){
+			this.style.overflowY = 'hidden';
+			this.style.height = 'auto';
+			this.style.height = (this.scrollHeight) + 'px';
+		})
+		$('.attrSetting .cancelSelect').click(function(){
+			if(currentSelect!=null){
+				if(currentSelect.hasClass('DomSelected')){currentSelect.removeClass('DomSelected')}
+				$('.attrSetting').css('display','none')
+			}
+		})
+		$('#iosUrl .dropdown-item').click(function(){
+			$('#iosUrl button').html($(this).html())
+			$('#iosUrl input').val($(this).attr('iosUrl'))
+		})
+		$('.attrSetting .delSelect').click(function(){
+			if(currentSelect!=null){
+				$('.attrSetting').css('display','none')
+				if(currentSelect.hasClass('swiper-container')){
+					if(currentSelect.next().prop('tagName')=='SCRIPT'){
+						currentSelect.next().remove();
+					}
+					currentSelect.find('.swiper-slide').each(function(){
+						data = {UnusedRes:$(this).find('img').attr('src')}
+						$.ajax({
+							type: 'POST',
+							dataType: 'json',
+							url:'/delUnusedRes',
+							data : data,
+							success : function (res) {
+								console.log('del '+ JSON.stringify(res))
+								
+							}
+						})
+					})
+				}else{
+					data = {UnusedRes:currentSelect.attr('src')}
+					$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						url:'/delUnusedRes',
+						data : data,
+						success : function (res) {
+							console.log('del '+ JSON.stringify(res))
+						}
+					})
+				}
+				currentSelect.remove()
+			}
+		})
+		function pxToRem(_s){
+			var reg = /(\:|: )+(\d)*(\.)?(\d)*(px)/gi;
+			let newStr= _s.replace(reg, function(_x){
+				_x = _x.replace(/(\:|: )/,'').replace(/px/i,'');
+				return ':' + parseFloat(_x) / 64 + 'rem';
+			});
+			return newStr;
+		}
+		$('#inputGroupPageNameSubmit').click(function(){
+			let pageName = $('#inputGroupPageName').val()
+			String.prototype.endWith = function (s) {
+				var d = this.length - s.length;
+				return (d >= 0 && this.lastIndexOf(s) == d)
+			}
+			if(pageName.endWith("html") || pageName.endWith("htm")){
+				pageName = pageName
+			}else{
+				pageName = pageName+'.html'
+			}
+			let data = {pageName:pageName}
+			let htmlSource = $('.preview').html()
+			//-替换swiper为源码
+			for (let i = 0, max = swiperHTML.length; i < max; i++) {
+				htmlSource = htmlSource.replace($('.swiper'+ i).find('.swiper-wrapper').html(),swiperHTML[i])
+			}
+			htmlSource = htmlSource.replace(/allowTouchMove:false/g,'allowTouchMove:true')
+			htmlSource = htmlSource.replace(/<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><\/div>/g,'')
+			htmlSource = htmlSource.replace(/<div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><\/div>/g,'')
+			htmlSource = htmlSource.replace(/<div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"><\/div>/g,'')
+
+			htmlSource = htmlSource.replace(/(var swiper[^\<]*)[\<]/g,function(_v){
+				_v = _v.replace(/\}\)\</,'})}<')
+				return "window.onload=function(){"+_v
+			})
+
+			htmlSource = pxToRem(htmlSource)
+
+			data.htmlSource = htmlSource
+			function checkTime(i){
+				if (i<10) 
+				{i="0" + i}
+				return i
+			}
+			let date = new Date();
+			let dateY = checkTime(date.getFullYear());
+			let dateM = checkTime(date.getMonth()+1);
+			let dateD = checkTime(date.getDate());
+			let dateh = checkTime(date.getHours());
+			let datem = checkTime(date.getMinutes());
+			let dates = checkTime(date.getSeconds());
+			//- let datems = date.getMilliseconds();
+			let timestamp = ''+dateY+dateM+dateD+'-'+dateh+datem+dates;
+			data.timestamp = timestamp;
+			$('#pageTitle').val()=='' ? data.title = '鱼丸游戏' : data.title = $('#pageTitle').val()
+			$('#packageName').val()=='' ? data.packageName = 'https://www.dafuhao-ol.com/GameBusiness/dfhapk/5A001.apk' : data.packageName = $('#packageName').val()
+			data.iosUrl = $('#iosUrl input').val()
+			//- console.log(dateY+dateM+dateD+dateh+datem+dates);
+			let PageSubmitResultAlert = $('<div></div>')
+			PageSubmitResultAlert.addClass('alert').addClass('fade').addClass('show')
+			PageSubmitResultAlert.attr('role','alert')
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url:'/newPage',
+				data : data,
+				success : function (res) {
+					if(res.err == 'File creation failed'){
+						$('#overwriteConfirm').modal('show')
+						$('#overwriteConfirm button.btn.btn-danger').click(function(){
+							$('#overwriteConfirm').modal('hide')
+							data.overwrite = true
+							$.ajax({
+								type: 'POST',
+								dataType: 'json',
+								url:'/newPage',
+								data : data,
+								success : function (res) {
+									PageSubmitResultAlert.addClass('alert-success')
+									PageSubmitResultAlert.html(pageName+' 于 ' + timestamp + ' 覆盖成功 ' + '<a href="http://www.dafuhao-ol.com/thirdShare/'+pageName+'" target="_blank" class="alert-link">点此访问</a>')
+									PageSubmitResultAlert.prependTo($('.PageSubmitResult'))
+									setTimeout(function(){
+										PageSubmitResultAlert.css('opacity',0.5)
+									},3000)
+								}
+							})
+							$(this).unbind('click')
+						})
+					}else{
+						PageSubmitResultAlert.addClass('alert-success')
+						PageSubmitResultAlert.html(pageName + ' 于 ' + timestamp + ' 上传成功 ' + '<a href="http://www.dafuhao-ol.com/thirdShare/'+pageName+'" target="_blank" class="alert-link">点此访问</a>')
+						PageSubmitResultAlert.prependTo($('.PageSubmitResult'))
+						setTimeout(function(){
+							PageSubmitResultAlert.css('opacity',0.5)
+						},3000)
+					}
+				}
+			})
+		})

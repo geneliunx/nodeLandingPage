@@ -1,0 +1,170 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dialog, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+button, input, select, textarea {
+    font: 12px/1.5 arial, tahoma, simsun, sans-serif;
+    font-size: 100%;
+    overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+address, cite, em, var {
+    font-style: normal;
+}
+
+code, kbd, pre, samp {
+    font-family: courier new, courier, monospace;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:hover {
+    outline: none;
+    text-decoration: none;
+}
+
+legend {
+    color: #333;
+}
+
+fieldset, img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section, time, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.none {
+    display: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.down_url{
+    cursor: pointer;
+}
+
+.download_btn{
+    opacity: 0;
+}
+
+.bodyContainer {
+    font-family: \5FAE\8F6F\96C5\9ED1;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.bodyContainer img {
+    display: block;
+    width: 100%;
+}
+
+.bodyFixed {
+    position: fixed;
+}
+
+.module {
+    width: 100%;
+    position: relative;
+}
+a {
+    color: #fff;
+}
+
+marquee{
+    position: absolute;
+    top:65%;
+    height: 7%;
+    width: 80%;
+    left: 10%;
+}
+
+img.tip{
+    position: absolute;
+    width: 100%;
+    top:11.6%;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+div.swiper-bodyContainer{
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    margin:0 auto;
+}
+
+/*weixin-tip*/
+.weixin-tip {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    filter: alpha(opacity=80);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.weixin-tip p{
+    margin: 0 auto;
+    text-align: center;
+}

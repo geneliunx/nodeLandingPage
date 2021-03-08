@@ -1,0 +1,184 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dialog, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+button, input, select, textarea {
+    font: 12px/1.5 arial, tahoma, simsun, sans-serif;
+    font-size: 100%;
+    overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+address, cite, em, var {
+    font-style: normal;
+}
+
+code, kbd, pre, samp {
+    font-family: courier new, courier, monospace;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:hover {
+    outline: none;
+    text-decoration: none;
+}
+
+legend {
+    color: #333;
+}
+
+fieldset, img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section, time, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    outline: none;
+}
+
+html {
+    font-size: 14px;
+    height: 100%;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font: 1rem/1.5 "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", \9ED1\4F53, Arial, sans-serif;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+a:link {color: transparent !important;-webkit-tap-highlight-color:transparent;} /*设置全局未点击链接的颜色*/ 
+a:visited {color: transparent !important;-webkit-tap-highlight-color:transparent;} /*设置全局被点击后的链接颜色*/ 
+a:hover {color: transparent !important;-webkit-tap-highlight-color:transparent;} /*设置全局鼠标悬停在链接上未点击时的颜色*/ 
+a:active {color: transparent !important;-webkit-tap-highlight-color:transparent;} /*设置全局鼠标在点击链接瞬间发生的动作*/
+
+.none {
+    display: none;
+}
+
+.apkurl.down_url{
+    cursor: pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.container {
+    font-family: \5FAE\8F6F\96C5\9ED1;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 640px;
+    min-height: 100%;
+    min-width: 640px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container img {
+    display: block;
+    width: 100%;
+}
+
+.module {
+    width: 100%;
+    position: relative;
+}
+
+.down_load {
+    position: absolute;
+    width: 100%;
+    bottom: 4.5%;
+    text-align: center;
+}
+
+.down_load a {
+    display: inline-block;
+    width: 65%;
+    margin: -20% auto;
+}
+
+.down_load a img{
+    position: inherit;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    max-width: 640px;
+    min-width: 640px;
+}
+
+header a {
+    width: 37.5%;
+    position: absolute;
+    top:14%;
+    right: 3%;
+    height: 75%;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+/*weixin-tip*/
+.weixin-tip {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    filter: alpha(opacity=80);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.weixin-tip p{
+    margin: 0 auto;
+    text-align: center;
+}

@@ -1,0 +1,16 @@
+.DomSelected {
+    /* color: #495057;
+    background-color: #fff; */
+    /* border-color: #80bdff; */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #bd2130;
+}
+
+.border28E {
+    border:3px dashed #000;
+    background:rgba(255,255,255,0.5);
+}
+
+.custom-file-label::after {
+    content: "浏览";
+}
